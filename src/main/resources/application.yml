@@ -1,15 +1,11 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/jwt_security
+    url: jdbc:mysql://localhost:3306/jwt_security
     username: root
-    password: 123456
-    driver-class-name: org.postgresql.Driver
+    password: AB12cd34ef56.
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    hibernate:
-      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-      database: postgresql
-      database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
