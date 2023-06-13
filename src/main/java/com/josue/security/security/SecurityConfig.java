@@ -42,6 +42,9 @@ public class SecurityConfig {
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> {
           auth.requestMatchers("/hello").permitAll();
+          auth.requestMatchers("/accessAdmin").hasRole("ADMIN");
+          auth.requestMatchers("/accessUser").hasAnyRole("ADMIN", "USER");
+          auth.requestMatchers("/accessInvited").hasRole("INVITED");
           auth.anyRequest().authenticated();
         })
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
